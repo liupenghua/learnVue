@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Headpart></Headpart>
-    <router-view></router-view>
+    <div id="main">
+      <router-view name="main"></router-view>
+    </div>
   </div>
 </template>
 
@@ -23,5 +25,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   
+}
+#main {
+    width: 90%;
+    max-width: 1400px;
+    min-width: 960px;
+    margin: 15px auto;
 }
 </style>

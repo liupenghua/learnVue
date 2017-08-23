@@ -26,7 +26,7 @@ export default{
 
 <style type="text/css">
 	.head{
-		position: fixed;
+/*		position: fixed;*/
 		width: 100%;
 		height: 50px;
 		background-color: #444; 
