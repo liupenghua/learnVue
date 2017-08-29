@@ -10,17 +10,21 @@
 		</div>
 		<div class="section">
 			<div class="cell" v-for='item of content'>
-				<a href="">
+				<a href="" class="user-img">
 					<img :src='item.author.avatar_url' :title='item.author.loginname'>
 				</a>
 				<span>
 					<span class="reply_count" title="回复数">{{item.reply_count}}/</span>
 					<span class="visit_count" title="查看数">{{item.visit_count}}</span>
 				</span>
-<!-- 				<a href="" class="toright">
+				<a href="" class="reply-img">
 					<img src="">
-					<span></span> -->
+					<span title="最后回复时间">{{item.create_at.match(/.{10}/)[0]}}</span>
 				</a>
+				<div class="title-paper">
+					<!-- <a href="">{{item.title}}</a> -->
+					<router-link :to="{name: 'contentpart',params: {id:item.id}}">{{item.title}}</router-link>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -99,7 +103,7 @@ export default {
 		text-align: left;
 		border-top:1px solid #f0f0f0; 
 	}
-	div.cell a>img{
+	div.cell a.user-img>img{
 		float: left;
 		width: 30px;
 		height: 30px;
@@ -117,6 +121,16 @@ export default {
 		font-size: 14px;
 		color: #9e78c0;
 	}
-
+	div.cell a.reply-img{
+		display: inline-block;
+		height: 20px;
+		padding: 5px 0;
+		float: right;
+		color: #b4b4b4;
+		font-size: 12px;
+	}
+	div.title-paper a{
+		color:#000;
+	}
 
 </style>
